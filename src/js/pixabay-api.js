@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const loadingMessage = document.getElementById("loading-message");
-const myApiKey = "48961514-d720aad073d42be14fd4daf93";
+const myApiKey = "49411735-b32ab4d57ab72698c2bda355f";
 const URL = "https://pixabay.com/api/";
 
 export async function axiosImages(query) {
