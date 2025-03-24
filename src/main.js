@@ -5,6 +5,7 @@ import { displayImages } from "./js/render-functions.js";
 
 const form = document.querySelector("form");
 const loadingMessage = document.getElementById("loading-message");
+const galleryContainer = document.getElementById("gallery"); // Додай ID контейнера для галереї
 
 form.addEventListener("submit", async (evt) => {
     evt.preventDefault();
@@ -21,6 +22,9 @@ form.addEventListener("submit", async (evt) => {
         });
         return;
     }
+
+   
+    if (galleryContainer) galleryContainer.innerHTML = "";
 
     if (loadingMessage) loadingMessage.style.display = "block";
 
