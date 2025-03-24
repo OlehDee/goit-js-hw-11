@@ -2,10 +2,23 @@ import SimpleLightbox from "simplelightbox";
 import "simplelightbox/dist/simple-lightbox.min.css";
 
 const gallery = document.querySelector(".gallery");
+const lightbox = new SimpleLightbox(".gallery a", {
+    captionsData: "alt",
+    captionDelay: 250,
+});
 
-export function displayImages(images) {
+/**
+ * Очищує галерею перед новим запитом
+ */
+export function clearGallery() {
     gallery.innerHTML = "";
+}
 
+/**
+ * Відображає зображення в галереї
+ * @param {Array} images - масив зображень
+ */
+export function displayImages(images) {
     const markup = images
         .map(
             (image) => `
@@ -27,12 +40,8 @@ export function displayImages(images) {
         )
         .join("");
 
-    gallery.innerHTML = `${markup}`;
+    gallery.innerHTML = markup;
 
-    const lightbox = new SimpleLightbox(".gallery a", {
-        captionsData: "alt",
-        captionDelay: 250,
-    });
-
+    // Оновлюємо існуючий екземпляр SimpleLightbox
     lightbox.refresh();
 }
